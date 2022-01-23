@@ -1,5 +1,4 @@
 @import './header';
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
 	background-color: #d6d6d6;
@@ -7,18 +6,6 @@ body {
 	display: flex;
 	font-family: 'Poppins', sans-serif;
 	justify-content: center;
-}
-
-.app-container {
-	background: linear-gradient(145deg, #e5e5e5, #c1c1c1);
-	border-radius: 12px;
-	box-shadow:
-		31px 31px 62px #929292,
-		-31px -31px 62px #fff;
-	flex-grow: 1;
-	margin: 2rem;
-	max-width: 600px;
-	padding: 2rem 3rem;
 }
 
 .todo-form {
@@ -90,4 +77,14 @@ body {
 	&::after {
 		transform: rotate(-45deg);
 	}
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
