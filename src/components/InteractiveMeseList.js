@@ -4,16 +4,19 @@ import MeseData from "./MeseData";
 import MeseDisplay from "./MeseDisplay";
 
 function InteractiveMeseList() {
+  const navigate = useNavigate();
+
+  const passToComponent = (data) => {
+    navigate("/test", { state: { title: data } });
+  }
+
   const dispContent = MeseData.map((post) =>
     <ul key={post.id}>
-      {/* <li><Link to="/test">{post.title}</Link></li> */}
-      <Link to={
-        {
-          pathname: "/test",
-          state: { name: "query" }
-        }
-      }>Proba</Link>
-      {/* <li onClick={() => console.log(post.title)}>{post.title}</li> */}
+      <li>
+        <a onClick={() => { passToComponent(post.title) }}>
+          {post.title}
+        </a>
+      </li>
     </ul >
   );
 
