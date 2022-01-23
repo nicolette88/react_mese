@@ -6,13 +6,13 @@ import MeseDisplay from "./MeseDisplay";
 function InteractiveMeseList() {
   const dispContent = MeseData.map((post) =>
     <ul key={post.id}>
-      <li><Link to="/test">{post.title}</Link></li>
-      {/* <Link to={
+      {/* <li><Link to="/test">{post.title}</Link></li> */}
+      <Link to={
         {
           pathname: "/test",
-          state: { lol: "state_lol" }
+          state: { name: "query" }
         }
-      }>Proba</Link> */}
+      }>Proba</Link>
       {/* <li onClick={() => console.log(post.title)}>{post.title}</li> */}
     </ul >
   );

@@ -6,7 +6,7 @@ import { auth, db, logout } from "../database"
 import "../scss/dashboard.scss";
 import MeseDisplay from "./MeseDisplay";
 import InteractiveMeseList from "./InteractiveMeseList";
-import Test from "./test";
+import Test from "./Test";
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
@@ -35,8 +35,8 @@ function Dashboard() {
         <div>
           <h1>Mesék</h1>
         </div>
-        {/* <InteractiveMeseList /> */}
-        <li><Link to="/test">TEST</Link></li>
+        <InteractiveMeseList />
+        {/* <li><Link to="/test">TEST</Link></li> */}
         <b>Welcome</b>
         <div>{name}</div>
         <div>{user?.email}</div>

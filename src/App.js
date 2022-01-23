@@ -18,7 +18,7 @@ import Dashboard from './components/Dashboard';
 import ResetPassword from './components/ResetPassword';
 // import MeseDisplay from './components/MeseDisplay';
 // import InteractiveMeseList from './components/InteractiveMeseList';
-import Test from './components/test';
+import Test from './components/Test';
 
 const App = () => {
 

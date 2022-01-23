@@ -1,12 +1,10 @@
-// import React, { useEffect, useState } from "react";
-// import { Link, useNavigate, useLocation } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../scss/test.scss";
 
 const Test = () => {
-  // function Test() {
-  // let location = useLocation();
-  // console.log(location);
+  const data = useLocation();
+  console.log(data.state);
 
   return (
     <div className="test">
@@ -15,6 +13,7 @@ const Test = () => {
           <h1>Mesék</h1>
         </div>
         <b>Welcome</b>
+        <p>valami</p>
       </div>
     </div>
   );
