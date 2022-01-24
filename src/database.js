@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   getFirestore,
   query,
@@ -17,8 +17,8 @@ import {
   updateDoc,
   doc,
   getDoc,
-} from "firebase/firestore";
-import config from "./db_config.js";
+} from 'firebase/firestore';
+import config from './db_config.js';
 
 const app = initializeApp(config);
 const auth = getAuth(app);
@@ -26,7 +26,7 @@ const db = getFirestore(app);
 
 const updateUserData = async (email, favoritsData) => {
   try {
-    await updateDoc(doc(db, "users", email), {
+    await updateDoc(doc(db, 'users', email), {
       favorits: favoritsData,
     });
   } catch (err) {
@@ -37,7 +37,8 @@ const updateUserData = async (email, favoritsData) => {
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -48,12 +49,12 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    await addDoc(collection(db, "users"), {
+    await addDoc(collection(db, 'users'), {
       uid: user.uid,
       name,
-      authProvider: "local",
+      authProvider: 'local',
       email,
-      favorits: "",
+      favorits: '',
     });
   } catch (err) {
     console.error(err);
@@ -64,7 +65,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
 const sendPasswordReset = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
-    alert("Password reset link sent!");
+    alert('Password reset link sent!');
   } catch (err) {
     console.error(err);
     alert(err.message);

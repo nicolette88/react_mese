@@ -18,7 +18,7 @@ const config = {
     // dont forget the ending slash!
     // this can be replaced to http://mywebsite.com/... for example
     // when the site goes public
-    publicPath: ''
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -111,9 +111,8 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
 
     config.devServer =  { //  npm install --save-dev webpack-dev-server
-      contentBase: path.resolve(__dirname, './dist'),
-      index: 'index.html',
-      port: 9000
+      port: 9000,
+      historyApiFallback: true
     },
     // config.watch = true;
     config.optimization = {

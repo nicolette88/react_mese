@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   'parserOptions': {
-    'ecmaVersion': 8,
+    'ecmaVersion': 2020,
     'sourceType': 'module',
     'ecmaFeatures': {
       'jsx': true
@@ -24,6 +24,7 @@ module.exports = {
     'react'
   ],
   'rules': {
+    'react/prop-types': 0,
     'indent': [
       'error',
       2
