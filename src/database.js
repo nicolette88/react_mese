@@ -17,6 +17,7 @@ import {
   updateDoc,
   doc,
   getDoc,
+  setDoc,
 } from 'firebase/firestore';
 import config from './db_config.js';
 
@@ -26,6 +27,7 @@ const db = getFirestore(app);
 
 const updateUserData = async (email, favoritsData) => {
   try {
+    console.log('update');
     await updateDoc(doc(db, 'users', email), {
       favorits: favoritsData,
     });
@@ -49,13 +51,15 @@ const registerWithEmailAndPassword = async (name, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    await addDoc(collection(db, 'users'), {
+    const userData = {
       uid: user.uid,
       name,
       authProvider: 'local',
       email,
       favorits: '',
-    });
+    };
+
+    await setDoc(doc(db, 'users', email), userData);
   } catch (err) {
     console.error(err);
     alert(err.message);

@@ -1,5 +1,5 @@
-import React from "react";
-import MeseData from "./MeseData";
+import React from 'react';
+import MeseData from './MeseData';
 
 const filterMese = (data, query) => {
   if (!query) {
@@ -14,7 +14,7 @@ const filterMese = (data, query) => {
 function MeseDisplay(cim) {
   // const cim = "Installation";
   if (!cim) {
-    return "nincs cim";
+    return 'nincs cim';
   }
   const mese = filterMese(MeseData, cim.toLocaleLowerCase());
   const dispContent = mese.map((post) =>
@@ -27,7 +27,7 @@ function MeseDisplay(cim) {
   return (
     <div>{dispContent}</div>
   );
-};
+}
 
 export default MeseDisplay;
 
