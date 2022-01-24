@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import "../scss/test.scss";
+import "../scss/mese.scss";
 import MeseDisplay from "./MeseDisplay";
 
-const Test = () => {
+const Mese = () => {
+  const navigate = useNavigate();
+
   const data = useLocation();
   console.log(data.state.title);
 
   const meseDisp = MeseDisplay(data.state.title);
 
   return (
-    <div className="test">
-      <div className="test__container">
+    <div className="mese">
+      <button className="mese__btn" onClick={() => navigate("/dashboard")}>
+        Back
+      </button>
+      <div className="mese__container">
         <div>
           {meseDisp}
         </div>
@@ -20,4 +25,4 @@ const Test = () => {
   );
 }
 
-export default Test;
+export default Mese;

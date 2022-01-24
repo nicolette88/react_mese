@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { query, collection, getDocs, where } from "firebase/firestore";
-import { auth, db, logout } from "../database"
+import { auth, db, logout, updateUserData } from "../database"
 import "../scss/dashboard.scss";
 import MeseDisplay from "./MeseDisplay";
 import InteractiveMeseList from "./InteractiveMeseList";
-import Test from "./Test";
+import Mese from "./Mese";
+import MyCheckBox from "./MyCheckBox";
 
 function Dashboard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
+
+  const update = () => {
+    updateUserData(user?.email, "true, true");
+  };
 
   const fetchUserName = async () => {
     try {
@@ -35,8 +40,11 @@ function Dashboard() {
         <div>
           <h1>Mesék</h1>
         </div>
-        <InteractiveMeseList />
-        {/* <li><Link to="/test">TEST</Link></li> */}
+        <MyCheckBox />
+        <button className="dashboard__btn" onClick={update}>
+          Save
+        </button>
+        <br />
         <b>Welcome</b>
         <div>{name}</div>
         <div>{user?.email}</div>

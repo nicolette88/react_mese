@@ -14,6 +14,9 @@ import {
   collection,
   where,
   addDoc,
+  updateDoc,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 import config from "./db_config.js";
 
@@ -21,6 +24,16 @@ const app = initializeApp(config);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+const updateUserData = async (email, favoritsData) => {
+  try {
+    await updateDoc(doc(db, "users", email), {
+      favorits: favoritsData,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {
@@ -40,6 +53,7 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: "local",
       email,
+      favorits: "",
     });
   } catch (err) {
     console.error(err);
@@ -64,6 +78,7 @@ const logout = () => {
 export {
   auth,
   db,
+  updateUserData,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,

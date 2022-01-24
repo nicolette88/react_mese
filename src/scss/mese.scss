@@ -1,25 +1,28 @@
-.test {
+.mese {
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .test__container {
+  .mese__container {
     display: flex;
     flex-direction: column;
     text-align: center;
     background-color: #dcdcdc;
     padding: 30px;
   }
-  .test__btn {
+  .mese__btn {
     padding: 10px;
     font-size: 18px;
     margin-top: 10px;
     border: none;
     color: white;
     background-color: black;
+    position:absolute;
+    top:0;
+    left:0;
   }
-  .test div {
+  .mese div {
     margin-top: 7px;
   }
