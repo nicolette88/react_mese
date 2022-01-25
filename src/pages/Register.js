@@ -10,13 +10,15 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [addr, setAddr] = useState('');
+  const [phone, setPhone] = useState('');
   const [inerest, setInerest] = useState('');
   const navigate = useNavigate();
 
   const register = async () => {
     if (!name) alert('Please enter name');
     try {
-      await registerWithEmailAndPassword(name, email, password, inerest);
+      await registerWithEmailAndPassword(name, addr, phone, email, password, inerest);
       window.location.pathname = '/dashboard';
     } catch (e) {
       console.log(e);
@@ -53,7 +55,21 @@ function Register() {
           className="register__textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Full Name"
+          placeholder="Teljes Név"
+        />
+        <input
+          type="text"
+          className="register__textBox"
+          value={addr}
+          onChange={(e) => setAddr(e.target.value)}
+          placeholder="Lakcím"
+        />
+        <input
+          type="text"
+          className="register__textBox"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="Telefon/Mobil"
         />
         <input
           type="text"

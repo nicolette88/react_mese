@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { query, collection, getDocs, where, limit } from 'firebase/firestore';
-import { auth, db, logout, updateUserData } from '../database';
+import {
+  auth,
+  db,
+  logout,
+  updateFavorites,
+  updateMarkedAsRead
+} from '../database';
 import '../scss/dashboard.scss';
 import '../scss/mycheckbox.scss';
-import MeseDisplay from '../components/MeseDisplay';
-import InteractiveMeseList from '../components/InteractiveMeseList';
 import Mese from './Mese';
 import MeseData from '../components/MeseData';
 
@@ -41,9 +45,11 @@ function Dashboard(props) {
     new Array(MeseData.length).fill(false)
   );
   const [name, setName] = useState('');
-  const [readMese, setReadMese] = useState('');
+  const [readMese, setReadMese] = useState('')
+  const [favoritesMese, setfavoritesMese] = useState('');
   const [interestsMese, setInterestsMese] = useState('');
   const navigate = useNavigate();
+  var probaStr = "";
 
   const fetchUserName = async () => {
     if (props.loading) return;
@@ -55,9 +61,10 @@ function Dashboard(props) {
       console.log(data);
       setName(data.name);
       setReadMese(data.markedAsRead);
+      probaStr = data.markedAsRead;
       setInterestsMese(data.interests);
-      if (typeof data.markedAsRead !== 'undefined' || data.markedAsRead !== null) {
-        var chekListInit = loadStringData(data.markedAsRead);
+      if (typeof data.favorites !== 'undefined' || data.favorites !== null) {
+        var chekListInit = loadStringData(data.favorites);
         for (var i = 0; i < checkedState.length; i++) {
           checkedState[i] = chekListInit[i] || false;
         }
@@ -85,12 +92,25 @@ function Dashboard(props) {
 
   const update = () => {
     console.log(toStringData(MeseData.length, checkedState));
-    updateUserData(props.user.email, toStringData(MeseData.length, checkedState));
+    updateFavorites(props.user.email, toStringData(MeseData.length, checkedState));
   };
 
-  const passToComponent = (dataTitle, dataReferral) => {
-    console.log('Title: ' + dataTitle + ' |Referral: ' + dataReferral);
-    navigate('/mese', { state: { title: dataTitle, referral: dataReferral } });
+  const updateTitleStatus = (data, id) => {
+    if (!data.includes(id)) {
+      var newData = data + ', ' + id;
+      console.log("new data: " + newData);
+      updateMarkedAsRead(props.user.email, newData);
+    };
+  };
+
+  const passToComponent = (data, dataReferral, readMeseAktual) => {
+    console.log('Title: ' + data.title + ' |Referral: ' + dataReferral);
+    console.log('postID: ' + data.id);
+
+    console.log("target" + readMeseAktual + ", " + data.id);
+    // setReadMese(data.id.toString());
+    updateTitleStatus(readMeseAktual, data.id.toString());
+    navigate('/mese', { state: { title: data.title, referral: dataReferral } });
   };
 
   const handleOnChange = (position) => {
@@ -122,7 +142,11 @@ function Dashboard(props) {
                         checked={checkedState[post.id - 1]}
                         onChange={() => handleOnChange(post.id - 1)}
                       />
-                      <label htmlFor={post.id}><a onClick={() => { passToComponent(post.title, interestsMese); }}>{post.title}</a></label>
+                      <label htmlFor={post.id}>
+                        <a onClick={() => { passToComponent(post, interestsMese, readMese); }}>
+                          {readMese.includes(post.id) ? <em>{post.title}</em> : <b>{post.title}</b>}
+                        </a>
+                      </label>
                     </div>
                   </div>
                 </li>

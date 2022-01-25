@@ -25,11 +25,23 @@ const app = initializeApp(config);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const updateUserData = async (email, markedAsRead) => {
+const updateMarkedAsRead = async (email, inMarkedAsRead) => {
   try {
-    console.log('update');
+    console.log('update MarkedAsRead');
     await updateDoc(doc(db, 'users', email), {
-      markedAsRead: markedAsRead,
+      markedAsRead: inMarkedAsRead,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
+const updateFavorites = async (email, inFavorites) => {
+  try {
+    console.log('update Favorites');
+    await updateDoc(doc(db, 'users', email), {
+      favorites: inFavorites,
     });
   } catch (err) {
     console.error(err);
@@ -47,16 +59,20 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password, interests) => {
+// name, addr, phone, email, password, inerest
+const registerWithEmailAndPassword = async (name, addr, phone, email, password, interests) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     const userData = {
       uid: user.uid,
       name,
+      addr,
+      phone,
       authProvider: 'local',
       email,
       markedAsRead: '',
+      favorites: '',
       interests,
     };
 
@@ -84,7 +100,8 @@ const logout = () => {
 export {
   auth,
   db,
-  updateUserData,
+  updateFavorites,
+  updateMarkedAsRead,
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,

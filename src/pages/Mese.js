@@ -8,8 +8,6 @@ const Mese = () => {
   const navigate = useNavigate();
 
   const data = useLocation();
-  // console.log('Proba1: ' + data.state.title);
-  // console.log('Proba2: ' + data.state.referral);
 
   const meseDisp = MeseDisplay(data.state.title);
 
