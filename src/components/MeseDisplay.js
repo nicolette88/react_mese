@@ -19,7 +19,7 @@ function MeseDisplay(cim) {
   const mese = filterMese(MeseData, cim.toLocaleLowerCase());
   const dispContent = mese.map((post) =>
     <div key={post.id}>
-      <h3>{post.title}</h3>
+      <h2>{post.title}</h2>
       <p>{post.content}</p>
     </div>
   );

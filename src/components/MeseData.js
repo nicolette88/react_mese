@@ -1,6 +1,7 @@
 const MeseData = [
   {
     id: 1, title: 'A kóró és a kis madár',
+    tag: 'allat, kicsiknek',
     content: `Egyszer volt, hol nem volt, volt a világon egy kis madár. Ez a kis madár egyszer nagyon megunta magát, rászállt egy kóróra.
 
     - Kis kóró, ringass engemet!
@@ -63,6 +64,7 @@ const MeseData = [
   },
   {
     id: 2, title: 'Farkas-barkas',
+    tag: 'allat',
     content: `Volt a világon egy kis tyúk, csak ott kapargált, csak ott kapargált a szeméten. Egyszer a szomszéd fia áthajított egy kis követ, egyenesen a kis tyúk fejére esett. Megijedt a kis tyúk, szaladt, szaladt, mindig ezt kiabálta: "Fussunk, fussunk, égszakadás, földindulás!" Amint szaladt, előtalált egy kis kakast. Azt kérdezi a kis kakas:
 
   - Hová szaladsz, kis tyúk koma?
@@ -191,6 +193,7 @@ const MeseData = [
   },
   {
     id: 3, title: 'Jankó és a három elátkozott királykisasszony',
+    tag: 'kiraly, kicsiknek',
     content: `Hol volt, hol nem volt, volt a világon egy nagy ország, abban egy város, abban a városban egy csizmadia, ennek a csizmadiának volt egy felesége meg egy fia. Ez a kölyök sehogy se akarta az apja mesterségét folytatni, hiába ütötte-verte az öreg csizmadia, mindig azt mondta, hogy ő bizon nem fótozza senki csizmáját, mikor úr is lehet, ő bizon úr lesz. Az anyja is pártját fogta, de az öreg csizmadián ketten se tudtak kifogni, mert mindjárt-mindjárt megverte mind a kettőt.
 
   Egyszer megunta Jankó a sok lábszíjazást, bement az anyjához.
@@ -327,6 +330,7 @@ const MeseData = [
   },
   {
     id: 4, title: 'A farkastanya',
+    tag: 'allat',
     content: `Egyszer volt, hol nem volt, még az Óperencián is túl volt, volt egy tojás. Ez a tojás megindult világra. Görgött, görgött, egyszer előtalált egy rucát. Azt kérdi tőle a ruca:
 
   - Hová mégy, tojás koma?
@@ -393,6 +397,7 @@ const MeseData = [
   Akkor nekiindultak, még most is szaladnak, ha meg nem álltak.` },
   {
     id: 5, title: 'A macska és az egér',
+    tag: 'allat',
     content: `Itt is volt, ott is volt, édesapámnak is volt, édesanyámnak is volt, nekem is volt, neked is volt, volt a világon egy macska. Ez a macska egyszer tejet evett egy tálból; odamegy egy kis egér, csak nyalogatja, csak nyalogatja a tál szélét. Mondja neki a macska:
 
   - Ne bolondozz ám, egér pajtás, ne nyalakodjál, mert majd bekapom a farkincádat!
@@ -431,4 +436,5 @@ const MeseData = [
 ];
 
 export default MeseData;
+
 

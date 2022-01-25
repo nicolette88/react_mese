@@ -1,6 +1,6 @@
 .mese {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,6 +11,7 @@
     text-align: center;
     background-color: #dcdcdc;
     padding: 30px;
+    border-bottom: solid;
   }
   .mese__btn {
     padding: 10px;
@@ -23,6 +24,10 @@
     top:0;
     left:0;
   }
-  .mese div {
+  .mese {
     margin-top: 7px;
+  }
+
+  .ajanlo {
+    text-align: center;
   }

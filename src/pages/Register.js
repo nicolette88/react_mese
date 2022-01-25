@@ -3,22 +3,48 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, registerWithEmailAndPassword } from '../database';
 import '../scss/register.scss';
+import '../scss/mycheckbox.scss';
+import MeseInterests from '../components/MeseInterest';
 
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [inerest, setInerest] = useState('');
   const navigate = useNavigate();
 
   const register = async () => {
     if (!name) alert('Please enter name');
     try {
-      await registerWithEmailAndPassword(name, email, password);
+      await registerWithEmailAndPassword(name, email, password, inerest);
       window.location.pathname = '/dashboard';
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   };
+  const [checkedState, setCheckedState] = useState(
+    new Array(MeseInterests.length).fill(false)
+  );
+
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
+
+    const tmpData = updatedCheckedState.reduce(
+      (nev, currentState, index) => {
+        if (currentState === true) {
+          return nev + MeseInterests[index].category + ', ';
+        }
+        return nev;
+      },
+      ''
+    );
+    setInerest(tmpData);
+  };
+
   return (
     <div className="register">
       <div className="register__container">
@@ -43,6 +69,30 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
+        {/* <MyCheckBox /> */}
+        <div className="mycheckbox">
+          <ul className="toppings-list">
+            {MeseInterests.map((post) => {
+              return (
+                <li key={post.id}>
+                  <div className="toppings-list-item">
+                    <div className="left-section">
+                      <input
+                        type="checkbox"
+                        id={post.id - 1}
+                        checked={checkedState[post.id - 1]}
+                        onChange={() => handleOnChange(post.id - 1)}
+                      />
+                      <label htmlFor={post.id}>{post.category}</label>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+        </div >
+        <br></br>
         <button className="register__btn" onClick={register}>
           Register
         </button>
@@ -50,7 +100,7 @@ function Register() {
           Already have an account? <Link to="/">Login</Link> now.
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 export default Register;

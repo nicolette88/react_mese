@@ -9,7 +9,7 @@ import MeseDisplay from '../components/MeseDisplay';
 import InteractiveMeseList from '../components/InteractiveMeseList';
 import Mese from './Mese';
 import MeseData from '../components/MeseData';
-// import MyCheckBox from '../components/MyCheckBox';
+
 
 const loadStringData = (value) => {
   var resArray = [];
@@ -42,6 +42,7 @@ function Dashboard(props) {
   );
   const [name, setName] = useState('');
   const [readMese, setReadMese] = useState('');
+  const [interestsMese, setInterestsMese] = useState('');
   const navigate = useNavigate();
 
   const fetchUserName = async () => {
@@ -53,14 +54,16 @@ function Dashboard(props) {
       const data = doc.docs[0].data();
       console.log(data);
       setName(data.name);
-      setReadMese(data.favorits);
-      console.log('****' + data.favorits);
-      var chekListInit = loadStringData(data.favorits);
-      for (var i = 0; i < checkedState.length; i++) {
-        checkedState[i] = chekListInit[i];
+      setReadMese(data.markedAsRead);
+      setInterestsMese(data.interests);
+      if (typeof data.markedAsRead !== 'undefined' || data.markedAsRead !== null) {
+        var chekListInit = loadStringData(data.markedAsRead);
+        for (var i = 0; i < checkedState.length; i++) {
+          checkedState[i] = chekListInit[i] || false;
+        }
+        handleOnChange();
+        console.log('checkList values: ' + chekListInit);
       }
-      handleOnChange();
-      console.log('test: ' + chekListInit);
     } catch (err) {
       console.error(err);
       alert('An error occured while fetching user data');
@@ -85,8 +88,9 @@ function Dashboard(props) {
     updateUserData(props.user.email, toStringData(MeseData.length, checkedState));
   };
 
-  const passToComponent = (data) => {
-    navigate('/mese', { state: { title: data } });
+  const passToComponent = (dataTitle, dataReferral) => {
+    console.log('Title: ' + dataTitle + ' |Referral: ' + dataReferral);
+    navigate('/mese', { state: { title: dataTitle, referral: dataReferral } });
   };
 
   const handleOnChange = (position) => {
@@ -114,11 +118,11 @@ function Dashboard(props) {
                         type="checkbox"
                         id={post.id - 1}
                         // name={name}
-                        // name={post.title}
+                        name={post.title}
                         checked={checkedState[post.id - 1]}
                         onChange={() => handleOnChange(post.id - 1)}
                       />
-                      <label htmlFor={post.id}><a onClick={() => { passToComponent(post.title); }}>{post.title}</a></label>
+                      <label htmlFor={post.id}><a onClick={() => { passToComponent(post.title, interestsMese); }}>{post.title}</a></label>
                     </div>
                   </div>
                 </li>

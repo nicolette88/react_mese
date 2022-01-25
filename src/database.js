@@ -25,11 +25,11 @@ const app = initializeApp(config);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const updateUserData = async (email, favoritsData) => {
+const updateUserData = async (email, markedAsRead) => {
   try {
     console.log('update');
     await updateDoc(doc(db, 'users', email), {
-      favorits: favoritsData,
+      markedAsRead: markedAsRead,
     });
   } catch (err) {
     console.error(err);
@@ -47,7 +47,7 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name, email, password, interests) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -56,7 +56,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: 'local',
       email,
-      favorits: '',
+      markedAsRead: '',
+      interests,
     };
 
     await setDoc(doc(db, 'users', email), userData);
