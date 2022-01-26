@@ -10,7 +10,6 @@ import {
   updateMarkedAsRead
 } from '../database';
 import '../scss/dashboard.scss';
-import '../scss/mycheckbox.scss';
 import Mese from './Mese';
 import MeseData from '../components/MeseData';
 
@@ -123,16 +122,17 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard">
-      <div className="dashboard__container">
+      <div className="dashboard_container">
         <div>
           <h1>Mesék</h1>
+          <p>A mesék melletti jelölőnégyzetekben kiválaszthatod a kedvenceidet.<br></br>Az olvasott mesék vékonyan, döntve jelennek meg.</p>
         </div>
-        <div className="mycheckbox">
-          <ul className="toppings-list">
+        <div className="mesecheckbox">
+          <ul className="mesecheckbox-list">
             {MeseData.map((post) => {
               return (
                 <li key={post.id}>
-                  <div className="toppings-list-item">
+                  <div className="mesecheckbox-list-item">
                     <div className="left-section">
                       <input
                         type="checkbox"
@@ -153,19 +153,19 @@ function Dashboard(props) {
               );
             })}
           </ul>
-          <button className="dashboard__btn" onClick={update}>
-            Save
+          <button className="dashboard_btn" onClick={update}>
+            Mentés
           </button>
         </div >
         <br />
-        <b>Welcome</b>
+        <b>Szia</b>
         <div>{name}</div>
         <div>{props.user.email}</div>
-        <button className="dashboard__btn" onClick={logOutUser}>
-          Logout
+        <button className="dashboard_btn" onClick={logOutUser}>
+          Kijelentkezés
         </button>
       </div>
-    </div>
+    </div >
   );
 }
 export default Dashboard;

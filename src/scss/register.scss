@@ -4,30 +4,65 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .register__container {
+    margin-top: 7px;
+    position: absolute;
+}
+
+.register_container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
+    background-color: #f1d5b4;
     padding: 30px;
-  }
-  .register__textBox {
+    margin-top: 5%;
+    width: 25%;
+}
+
+.register_textBox {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
-  }
-  .register__btn {
+}
+
+.register_btn {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: #be0000;
+}
+
+
+.temacheckbox {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.temacheckbox-list {
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.temacheckbox-list li {
+  margin-bottom: 0.5rem;
+}
+
+.temacheckbox-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+  
+.temacheckbox-list-item label {
+  vertical-align: text-bottom;
+  margin-left: 0.2rem;
+}
+
+
+@media screen and (max-width: 600px) {
+  .temacheckbox-list {
+    width: 90%;
   }
-  .register__google {
-    background-color: #4285f4;
-  }
-  .register div {
-    margin-top: 7px;
-  }
+}

@@ -1,36 +1,63 @@
 .login {
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+    position: absolute;
+}
   
-  .login__container {
+.login_container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
+    background-color: #f1d5b4;
     padding: 30px;
-  }
+    margin-top: 5%;
+}
   
-  .login__textBox {
+.login_textBox {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
-  }
+}
   
-  .login__btn {
+.login_btn {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
-  }
-  
-  .login div {
-    margin-top: 7px;
-  }
+    background-color: #be0000;
+}
 
-  
+.main-text {
+  position: absolute;
+  top: 4vw;
+  width: 100%;
+  text-align: center;
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  z-index: 1;
+  color: #be0000;
+}
+
+.banner-text {
+  position: absolute;
+  top: 35vw;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  z-index: 1;
+  color: #be0000;
+}
+
+h2 {
+  text-align: center;
+  padding: 5px;
+  font-weight: 800;
+  font-size: 30px;
+}

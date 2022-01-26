@@ -1,92 +1,12 @@
-h1 {
-	color: #6d6d6d;
-} 
-
 body {
-	background-color: #d6d6d6;
-	color: #000;
+	background-color: #fff0cb;
+	color: #be0000;
 	display: flex;
 	font-family: 'Poppins', sans-serif;
 	justify-content: center;
+	margin: 0;
 }
 
-.todo-form {
-	display: flex;
-}
-
-.todo-input {
-	background: none;
-	border: 0;
-	border-bottom: 1px solid #e8e8e8;
-	flex-grow: 1;
-	height: 2rem;
-	outline: none;
-}
-
-.todo-add {
-	background-color: #21b734;
-	border: 0;
-	border-radius: 12px;
-	color: #fff;
-	cursor: pointer;
-	margin-left: 20px;
-	outline: none;
-	padding: 10px;
-	width: 4rem;
-}
-
-.todo-container {
-	list-style: none;
-	padding: 0;
-}
-
-.todo-item {
-	background-color: #e2e2e2;
-	border: 1px solid #c5c5c5;
-	border-radius: 20px;
-	color: #616161;
-	margin-top: 10px;
-	padding: 10px 15px;
-}
-
-.remove-button {
-	cursor: pointer;
-	float: right;
-	height: 32px;
-	opacity: 0.3;
-	position: relative;
-	width: 32px;
-
-	&:hover {
-		opacity: 1;
-	}
-
-	&::before,
-	&::after {
-		background-color: #333;
-		content: ' ';
-		height: 27px;
-		left: 15px;
-		position: absolute;
-		top: -1px;
-		width: 2px;
-	}
-
-	&::before {
-		transform: rotate(45deg);
-	}
-
-	&::after {
-		transform: rotate(-45deg);
-	}
-}
-
-.visually-hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
+.banner-image {
+	width: 100%;
 }

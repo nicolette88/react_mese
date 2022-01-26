@@ -1,7 +1,7 @@
 const MeseInterests = [
-  { id: 1, category: 'allat' },
-  { id: 2, category: 'kiraly' },
-  { id: 3, category: 'kicsiknek' },
-  { id: 4, category: 'nagyoknak' }];
+  { id: 1, category: 'Állatos' },
+  { id: 2, category: 'Királyos' },
+  { id: 3, category: 'Kicsiknek' },
+  { id: 4, category: 'Nagyoknak' }];
 
 export default MeseInterests;

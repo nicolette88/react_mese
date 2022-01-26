@@ -28,35 +28,49 @@ function Login(props) {
 
   return (
     <div className="login">
-      <div className="login__container">
+      <div class="main-text">Népmesetár</div>
+      <div class="banner-text">
+        <p>... ahol a kurta farkú malac túr!</p>
+        <h2>A magyar népmesék egy helyen</h2>
+        <h2>Regisztrálj, hogy elérd a meséket!</h2>
+        <h2>Megjelölheted kedvenceidet!</h2>
+        <h2>Próbáld ki a meseajánlónkat is!</h2>
+      </div>
+      {/* <div class="banner-text2">
+        <h2>A magyar népmesék egy helyen</h2>
+        <h2>Regisztrálj a testreszabható népmesetárért!</h2>
+        <h2>Könnyedén megjelölheted kedvenceidet!</h2>
+        <h2>A regisztráció során megadott kategóriák alapján ajánlunk neked meséket!</h2>
+      </div> */}
+      <div className="login_container">
         <input
           type="text"
-          className="login__textBox"
+          className="login_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="E-mail cím"
         />
         <input
           type="password"
-          className="login__textBox"
+          className="login_textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Jelszó"
         />
         <button
-          className="login__btn"
+          className="login_btn"
           onClick={() => handleLogin()}
         >
-          Login
+          Belépés
         </button>
         <div>
-          <Link to="/resetpassword">Forgot Password</Link>
+          <Link to="/resetpassword">Elfelejtett jelszó</Link>
         </div>
         <div>
-          Don&apos;t have an account? <Link to="/register">Register</Link> now.
+          Nincs még fiókod? <Link to="/register">Regisztrálj!</Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

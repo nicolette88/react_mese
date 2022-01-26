@@ -10,12 +10,12 @@ const LoadingPage = props => {
     console.log('loading page loaded');
     if (props.user.email) {
       navigate('dashboard');
-    }  
+    }
     if (props.loading === false && !props.user.email) {
       navigate('login');
     }
   }, [props.loading, props.user.email]);
-  return ( <div>Loading</div> );
+  return (<div>Töltés...</div>);
 };
 
 export default LoadingPage;

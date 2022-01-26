@@ -16,20 +16,24 @@ function ResetPassword() {
 
   return (
     <div className="resetpassword">
-      <div className="reset__container">
+      <button className="vissza_btn" onClick={() => navigate('/login')}>
+        Vissza
+      </button>
+      <div className="reset_container">
+        <h3>Jelszó visszaállítás</h3>
         <input
           type="text"
-          className="reset__textBox"
+          className="reset_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="E-mail cím"
         />
-        <button className="reset__btn" onClick={() => sendPasswordReset(email)}>
-          Send password reset email
+        <button className="reset_btn" onClick={() => sendPasswordReset(email)}>
+          E-mail küldése
         </button>
 
         <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+          Nincs még felhasználói fiókod? <Link to="/register">Regisztráció</Link>
         </div>
       </div>
     </div>

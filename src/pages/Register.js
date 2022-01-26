@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, registerWithEmailAndPassword } from '../database';
 import '../scss/register.scss';
-import '../scss/mycheckbox.scss';
 import MeseInterests from '../components/MeseInterest';
 
 function Register() {
@@ -49,49 +48,50 @@ function Register() {
 
   return (
     <div className="register">
-      <div className="register__container">
+      <div className="register_container">
+        <h2>Regisztráció</h2>
         <input
           type="text"
-          className="register__textBox"
+          className="register_textBox"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Teljes Név"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="register_textBox"
           value={addr}
           onChange={(e) => setAddr(e.target.value)}
           placeholder="Lakcím"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="register_textBox"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Telefon/Mobil"
         />
         <input
           type="text"
-          className="register__textBox"
+          className="register_textBox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
+          placeholder="E-mail cím"
         />
         <input
           type="password"
-          className="register__textBox"
+          className="register_textBox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Jelszó"
         />
-        {/* <MyCheckBox /> */}
-        <div className="mycheckbox">
-          <ul className="toppings-list">
+        <h3>Érdeklődési témakörök:</h3>
+        <div className="temacheckbox">
+          <ul className="temacheckbox-list">
             {MeseInterests.map((post) => {
               return (
                 <li key={post.id}>
-                  <div className="toppings-list-item">
+                  <div className="temacheckbox-list-item">
                     <div className="left-section">
                       <input
                         type="checkbox"
@@ -99,21 +99,20 @@ function Register() {
                         checked={checkedState[post.id - 1]}
                         onChange={() => handleOnChange(post.id - 1)}
                       />
-                      <label htmlFor={post.id}>{post.category}</label>
+                      <label htmlFor={post.id}><b>{post.category}</b></label>
                     </div>
                   </div>
                 </li>
               );
             })}
           </ul>
-
         </div >
         <br></br>
-        <button className="register__btn" onClick={register}>
-          Register
+        <button className="register_btn" onClick={register}>
+          Regisztrálok
         </button>
         <div>
-          Already have an account? <Link to="/">Login</Link> now.
+          Már van felhasználói fiókod? <Link to="/">Belépés</Link>
         </div>
       </div>
     </div >

@@ -12,20 +12,18 @@ const Mese = () => {
   const meseDisp = MeseDisplay(data.state.title);
 
   return (
-    <div>
-      <div className="mese">
-        <button className="mese__btn" onClick={() => navigate('/dashboard')}>
-          Back
-        </button>
-        <div className="mese__container">
-          <div>
-            {meseDisp}
-          </div>
+    <div className="mese">
+      <button className="mese_btn" onClick={() => navigate('/dashboard')}>
+        Vissza
+      </button>
+      <div className="mese_container">
+        <div>
+          {meseDisp}
         </div>
-      </div>
-      <div className='ajanlo'>
-        <h2>Meseajánló</h2>
-        <Ajanlo referral={data.state.referral} />
+        <div className='ajanlo'>
+          <h2>Meseajánló</h2>
+          <Ajanlo referral={data.state.referral} />
+        </div>
       </div>
     </div>
   );

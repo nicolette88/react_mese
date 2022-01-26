@@ -9,7 +9,7 @@ const filterAjanlo = (data, query) => {
 
   var queryArray = query.split(',');
   return data.filter((post) => {
-    const postData = post.tag.toLowerCase();
+    const postData = post.tag;
     var mergeFilter;
     for (var i = 0; i < queryArray.length; i++) {
       if ((queryArray[i] !== ' ') && (queryArray[i] !== '')) {

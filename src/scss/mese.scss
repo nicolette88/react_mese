@@ -4,30 +4,36 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .mese__container {
+    position: absolute;
+    margin-top: 7px;
+}
+
+.mese_container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
+    background-color: #fff0cb;
     padding: 30px;
-    border-bottom: solid;
-  }
-  .mese__btn {
+    width: 80%;
+    margin-top: auto;
+}
+
+.mese_btn {
     padding: 10px;
     font-size: 18px;
     margin-top: 10px;
-    border: none;
+    border: solid;
+    border-width: 5px;
+    border-color: #fff0cb;
     color: white;
-    background-color: black;
+    background-color: #be0000;
     position:absolute;
     top:0;
     left:0;
-  }
-  .mese {
-    margin-top: 7px;
-  }
+}
 
-  .ajanlo {
+.ajanlo {
     text-align: center;
-  }
+    padding-top: 30px;
+    border-top: solid;
+}

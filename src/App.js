@@ -52,8 +52,7 @@ const App = () => {
   }, [user]);
 
   return (
-    <>
-      {/* <MyCheckBox /> */}
+    <div>
       <Router>
         <Routes>
           <Route exact path="/" element={<LoadingPage user={user} loading={loading} />} />
@@ -64,7 +63,8 @@ const App = () => {
           <Route exact path="mese" element={<Mese />} />
         </Routes>
       </Router>
-    </>
+      <img class="banner-image" src="./img/banner_image.png" alt="" />
+    </div>
   );
 };
 export default App;
