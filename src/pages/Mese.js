@@ -13,6 +13,9 @@ const Mese = () => {
 
   const meseDisp = MeseDisplay(data.state.title);
 
+  // A nap és a hold ikon forrása:
+  // https://www.iconfinder.com/search?q=sun&price=free
+
   function changeToDarkMode() {
     document.body.style.backgroundColor = "black";
     document.getElementsByClassName("mese")[0].lastChild.style.backgroundColor = "black";
