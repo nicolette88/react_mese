@@ -28,8 +28,8 @@ function Login(props) {
 
   return (
     <div className="login">
-      <div class="main-text">Népmesetár</div>
-      <div class="banner-text">
+      <div className="main-text">Népmesetár</div>
+      <div className="banner-text">
         <p>... ahol a kurta farkú malac túr!</p>
         <h2>A magyar népmesék egy helyen</h2>
         <h2>Regisztrálj, hogy elérd a meséket!</h2>
@@ -45,14 +45,14 @@ function Login(props) {
       <div className="login_container">
         <input
           type="text"
-          className="login_textBox"
+          className="login_textbox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail cím"
         />
         <input
           type="password"
-          className="login_textBox"
+          className="login_textbox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Jelszó"

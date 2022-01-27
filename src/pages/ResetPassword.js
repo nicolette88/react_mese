@@ -23,7 +23,7 @@ function ResetPassword() {
         <h3>Jelszó visszaállítás</h3>
         <input
           type="text"
-          className="reset_textBox"
+          className="reset_textbox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail cím"

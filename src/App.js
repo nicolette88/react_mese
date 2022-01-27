@@ -63,7 +63,7 @@ const App = () => {
           <Route exact path="mese" element={<Mese />} />
         </Routes>
       </Router>
-      <img class="banner-image" src="./img/banner_image.png" alt="" />
+      <img className="banner-image" src="./img/banner_image.png" alt="" />
     </div>
   );
 };

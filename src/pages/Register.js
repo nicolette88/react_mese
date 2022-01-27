@@ -52,35 +52,35 @@ function Register() {
         <h2>Regisztráció</h2>
         <input
           type="text"
-          className="register_textBox"
+          className="register_textbox"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Teljes Név"
         />
         <input
           type="text"
-          className="register_textBox"
+          className="register_textbox"
           value={addr}
           onChange={(e) => setAddr(e.target.value)}
           placeholder="Lakcím"
         />
         <input
           type="text"
-          className="register_textBox"
+          className="register_textbox"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Telefon/Mobil"
         />
         <input
           type="text"
-          className="register_textBox"
+          className="register_textbox"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail cím"
         />
         <input
           type="password"
-          className="register_textBox"
+          className="register_textbox"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Jelszó"
