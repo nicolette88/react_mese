@@ -61,3 +61,14 @@ clone this repo, `cd` into the folder then do `npm install` inside the project f
 "stylelint.config": { "extends": "./.stylelintrc" }
 ```
 
+## A fejlesztéshez használt internetes anyagok:
+
+Checkbox: https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/. 
+Firebase.com: https://firebase.google.com/docs 
+Iconfinder.com:
+https://www.iconfinder.com/icons/2995005/sun_sunny_yellow_weather_beach_climate_day_icon
+https://www.iconfinder.com/icons/2995009/moon_space_night_astronomy_cloud_planet_weather_icon 
+Logrocket.com: https://blog.logrocket.com/user-authentication-firebase-react-apps/
+Logrocket.com: https://blog.logrocket.com/react-router-dom-tutorial-examples/#what-is-react-router
+MEK OSZK honlapja, Arany László: Magyar népmesék: https://mek.oszk.hu/00500/00598/
+React.org: https://reactjs.org/docs/getting-started.html 
