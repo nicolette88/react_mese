@@ -71,4 +71,5 @@ https://www.iconfinder.com/icons/2995009/moon_space_night_astronomy_cloud_planet
 Logrocket.com: https://blog.logrocket.com/user-authentication-firebase-react-apps/
 Logrocket.com: https://blog.logrocket.com/react-router-dom-tutorial-examples/#what-is-react-router
 MEK OSZK honlapja, Arany László: Magyar népmesék: https://mek.oszk.hu/00500/00598/
+Pixabay.com:https://pixabay.com/hu/illustrations/keret-k%c3%a9pkeret-piros-sz%c3%b6gletes-1043682/
 React.org: https://reactjs.org/docs/getting-started.html 
